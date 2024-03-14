@@ -14,8 +14,37 @@ import { Label } from "./components/ui/label"
 import { FaEye } from "react-icons/fa"
 import { FaEyeSlash } from "react-icons/fa"
 import moneyFriend from "./images/moneyFriend.jpg";
+import { Flex, Text, Divider } from '@aws-amplify/ui-react';
+import '@aws-amplify/ui-react/styles.css';
+import '@aws-amplify/ui-react/styles/reset.layer.css' // global CSS reset
+import '@aws-amplify/ui-react/styles/base.layer.css' // base styling needed for Amplify UI
+import '@aws-amplify/ui-react/styles/button.layer.css' // component specific styles
+import { EnvelopeOpenIcon, GitHubLogoIcon } from "@radix-ui/react-icons/"
 
-// import { Divider } from '../node_modules/chakra-ui/react'
+
+export const LabelDivider = () => (
+  <div className="mt-8">
+    <Flex direction="row" justifyContent="space-around">
+      <Button>
+        <GitHubLogoIcon className="mr-2 h-4 w-4" /> Login with Github
+      </Button>
+      <Divider orientation="vertical" />
+      <Button>
+        <EnvelopeOpenIcon className="mr-2 h-4 w-4" /> Login with Gmail
+      </Button>
+    </Flex>
+  </div>
+);
+
+export const LabelDivider2 = () => (
+  <div className="mt-6">
+    <Flex direction="column">
+      <Text></Text>
+      <Divider label="OR" />
+      <Text></Text>
+    </Flex>
+  </div>
+);
 
 interface User {
   name: string,
@@ -43,13 +72,14 @@ function SignIn() {
       {/* coluna direita */}
       <section className="p-4">
         <IconLogin></IconLogin>
-        <Card className="w-[350px] h-[350px]">
-          <CardHeader>
-            <CardTitle className="text-center">Login</CardTitle>
-            <CardDescription className="text-center">Deploy your new project in one-click.</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <form>
+        <form>
+
+          <Card className="w-[400px] h-[450px]">
+            <CardHeader>
+              <CardTitle className="text-center">Login</CardTitle>
+              <CardDescription className="text-center">Deploy your new project in one-click.</CardDescription>
+            </CardHeader>
+            <CardContent>
               <div className="grid w-full items-center gap-4">
                 <div className="flex flex-col space-y-1.5">
                   <Label htmlFor="email">Email</Label>
@@ -69,13 +99,17 @@ function SignIn() {
                   </span>
                 </div>
               </div>
-            </form>
-          </CardContent>
-          <CardFooter className="flex justify-center">
-            <Button className="bg-sky-600 w-[250px]">Sign In</Button>
-            {/* <Divider orientation='vertical' /> */}
-          </CardFooter>
-        </Card>
+              <LabelDivider></LabelDivider>
+              <LabelDivider2></LabelDivider2>
+            </CardContent>
+            <CardFooter className="flex justify-center">
+              <Button className="w-[250px]">Sign In</Button>
+
+            </CardFooter>
+
+          </Card>
+        </form>
+
       </section>
     </main >
   );

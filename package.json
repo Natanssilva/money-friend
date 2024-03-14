@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@aws-amplify/ui-react": "^6.1.5",
     "@chakra-ui/layout": "^2.3.1",
     "@chakra-ui/react": "^2.8.2",
     "@emotion/react": "^11.11.4",
@@ -19,6 +20,7 @@
     "@types/node": "^16.18.87",
     "@types/react": "^18.2.64",
     "@types/react-dom": "^18.2.21",
+    "aws-amplify": "^6.0.20",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "framer-motion": "^11.0.8",
